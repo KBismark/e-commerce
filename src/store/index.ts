@@ -1,19 +1,9 @@
-import React from "react";
-import { configureForReact, createStore, createStoreHook, createStoreUpdater } from "statestorejs";
+import { configureStore } from '@reduxjs/toolkit';
+import counterReducer from './components/example'
 
-// Configure store for use in react env 
-configureForReact(React);
-
-export const appStoreDatabaseName = 'app';
-const storeId = appStoreDatabaseName;
-
-createStore<AppStore>(appStoreProviderName, appStoreProviderName, {});
-
-export const useAppStore = createStoreHook<AppStore>({ provider: appStoreDatabaseName, storeId });
-
-export const updateAppStore = createStoreUpdater<AccountUser>({ provider: appStoreDatabaseName, storeId });
-
-export default {}
-
-
-interface AppStore{}
+export const store = configureStore({
+  reducer: {
+    // TODO: Add reducers...
+    counter: counterReducer,
+  },
+});

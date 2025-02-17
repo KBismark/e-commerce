@@ -1,7 +1,9 @@
+import { increment, selectCount } from "@/store/components/example";
 import { Link } from "expo-router";
 import React from "react";
 import { Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Page() {
   return (
@@ -14,6 +16,11 @@ export default function Page() {
 }
 
 function Content() {
+  const count = useSelector(selectCount);
+  const dispatch = useDispatch();
+
+  const handleIncreaseCount = ()=>dispatch(increment())
+  
   return (
     <View className="flex-1">
       <View className="py-12 md:py-24 lg:py-32 xl:py-48">

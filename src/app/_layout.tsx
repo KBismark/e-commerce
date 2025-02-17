@@ -8,6 +8,8 @@ import 'react-native-reanimated';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StyleSheet, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import { store } from '@/store';
+import { Provider as ReduxStoreProvider } from 'react-redux';
 
 
 export {
@@ -49,7 +51,9 @@ export default function RootLayout() {
 function RootLayoutNav() {
   return (
     <SafeAreaProvider>
-      <App />
+      <ReduxStoreProvider store={store}>
+        <App />
+      </ReduxStoreProvider>
     </SafeAreaProvider>
   );
 }
