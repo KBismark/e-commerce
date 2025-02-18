@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tabs } from 'expo-router';
-import { Feather, Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { Feather, FontAwesome6, Ionicons, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 import { View, Platform } from 'react-native';
 
@@ -9,7 +9,7 @@ const isAndroid = Platform.OS === 'android';
 const useTheme = ()=>({
   mode: 'light',
   colors: {
-    primary: 'blue', 
+    primary: '#ef4444', 
     neutral: '#eee', 
     white: '#fff', 
     blurColor: '#f3f3f3'
@@ -55,27 +55,27 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Chats',
+          title: 'Home',
           tabBarLabelStyle: {fontSize: 12, fontWeight: '500'},
-          tabBarIcon: ({ color }) => <Ionicons name='chatbubbles-outline' color={color} size={26} />,
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name='home-variant' color={color} size={26} />,
           
         }}
       />
       <Tabs.Screen
-        name="stories"
+        name="cart"
         options={{
-          title: 'Stories',
+          title: 'Basket',
           tabBarLabelStyle: {fontSize: 12, fontWeight: '500'},
-          tabBarIcon: ({ color }) => <MaterialIcons name='history-toggle-off' color={color} size={26} />,
+          tabBarIcon: ({ color }) => <MaterialCommunityIcons name='basket' color={color} size={26} />,
 
         }}
       />
       <Tabs.Screen
-        name="feed"
+        name="shops"
         options={{
-          title: 'Feed',
+          title: 'Shops',
           tabBarLabelStyle: {fontSize: 12, fontWeight: '500'},
-          tabBarIcon: ({ color }) => <MaterialIcons style={{marginRight: -5}} name='tips-and-updates' color={color} size={26} />,
+          tabBarIcon: ({ color }) => <FontAwesome6 style={{marginLeft: -2}} name='shop' color={color} size={20} />,
 
         }}
       />
@@ -85,15 +85,6 @@ export default function TabLayout() {
           title: 'Search',
           tabBarLabelStyle: {fontSize: 12, fontWeight: '500'},
           tabBarIcon: ({ color }) => <Feather name='search' color={color} size={26} />,
-
-        }}
-      />
-      <Tabs.Screen
-        name="settings"
-        options={{
-          title: 'Settings',
-          tabBarLabelStyle: {fontSize: 12, fontWeight: '500'},
-          tabBarIcon: ({ color }) => <Ionicons name='settings-outline' color={color} size={26} />,
 
         }}
       />

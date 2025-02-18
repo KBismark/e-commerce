@@ -19,7 +19,7 @@ export {
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: 'index',
+  initialRouteName: '(tabs)',
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -62,20 +62,15 @@ function RootLayoutNav() {
 const screenOptions = {headerShown: false}
 
 const App = memo(()=>{
-  const {colors, mode} = {colors: {background: '#ffffff'}, mode: 'light'};
-  styles.container.backgroundColor = colors.background
+  const {mode} = { mode: 'light'};
   return (
     <>
-      <View style={styles.container}>
+      <View className="bg-white flex-1">
         <Stack>
-          <Stack.Screen name="index" options={screenOptions} />
+          <Stack.Screen name="(tabs)" options={screenOptions} />
         </Stack>
       </View>
       <StatusBar style={mode==='dark'?'light': 'dark'} />
     </>
   )
-})
-
-const styles = StyleSheet.create({
-  container: {backgroundColor: '#ffffff',flex: 1}
 })
